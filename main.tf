@@ -8,7 +8,7 @@ resource "aws_instance" "server" {
   ami           = lookup(var.aws, "ami")
   instance_type = lookup(var.aws, "instance_type")
   vpc_security_group_ids = lookup(var.aws, "vpc_security_group_ids")
-  security_groups = lookup(var.aws, "security_groups")
+  #security_groups = lookup(var.aws, "security_groups")
   #count = lookup(var.aws, "count")
 
   tags = {
