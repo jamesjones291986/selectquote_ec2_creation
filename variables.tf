@@ -7,7 +7,7 @@ variable "aws" {
     instance_type = "t2.micro"
     instance_name = "SQ-instance"
     count = "1"
-    vpc = "vpc-0fd8a920d78744614"
+    vpc_security_group_ids = "sg-084c9523637c0140f"
     security_groups = "default"
   }
 }
