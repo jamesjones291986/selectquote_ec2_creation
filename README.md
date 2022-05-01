@@ -40,7 +40,9 @@ You can sign up for a free account here: [AWS Account](https://aws.amazon.com/fr
     - git clone ```Github repo URL```
 - Once repo is cloned, initialize terraform with this command:
     - ```terraform init```
-- Once configuration is setup including changes to variables, apply the changes and create the instance:
+- Once configuration is setup including changes to variables, run terraform plan to see a test run before creating the instance:
+    - ```terraform plan```
+- Once everything looks good apply and create
     - ```terraform apply```
 - When it is complete it should show successful. You can verify this by checking your AWS ec2 instances, locating the instance, and verify it is running with all configurations applied.
 
