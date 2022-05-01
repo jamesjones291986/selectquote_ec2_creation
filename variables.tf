@@ -1,15 +1,12 @@
 #This file holds variables for the ec2 instance creation
 
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-  default     = "us-west-2"
-}
-
-variable "instance_name" {
-  description = "Value of the Name tag for the EC2 instance"
-  type        = string
-  default     = "SQinstance"
+variable "aws" {
+  default = {
+    region = "us-west-2"
+    ami = "ami-02b92c281a4d3dc79"
+    instance_type = "t2.micro"
+    instance_name = "SQ-instance"
+  }
 }
 
 

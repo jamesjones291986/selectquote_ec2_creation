@@ -1,25 +1,12 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
-  }
+# AWS Instance
 
-  required_version = ">= 0.14.9"
-}
-
-provider "aws" {
-  profile = "default"
-  region  = var.aws_region
-}
-
-resource "aws_instance" "app_server" {
-  ami           = "ami-08d70e59c07c61a3a"
-  instance_type = "t2.micro"
+resource "aws_instance" "server" {
+  ami           = lookup(var.aws, "ami")
+  instance_type = lookup(var.aws, "instance_type")
+  availability_zone = lookup(var.aws, "region")
 
   tags = {
-    Name = var.instance_name
+    Name = lookup(var.aws, "instance_name")
   }
 }
 
