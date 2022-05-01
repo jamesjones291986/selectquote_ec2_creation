@@ -2,6 +2,8 @@
 
 provider "aws" {
   region = lookup(var.aws_instance, "region")
+  #access_key = ""
+  #secret_key = ""
 }
 
 resource "aws_security_group" "allow_ssh" {

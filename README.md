@@ -10,6 +10,9 @@ The goal of this exercise is to create an ec2 instance in AWS using Terraform.
 
 Install using this link: [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
+#### Documentation for using Terraform and AWS is useful for this project
+
+[Aws Terraform Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
 ### AWS Account
 
@@ -46,6 +49,6 @@ You can sign up for a free account here: [AWS Account](https://aws.amazon.com/fr
     - ```terraform apply```
 - When it is complete it should show successful. You can verify this by checking your AWS ec2 instances, locating the instance, and verify it is running with all configurations applied.
 
-### Terminating an ec2 instance
-- Once the instance is no longer needed, it can be deleted.
+### Terminating your infrastructure
+- Once the infrastructure is no longer needed, it can be deleted.
     - ```terraform destroy```
