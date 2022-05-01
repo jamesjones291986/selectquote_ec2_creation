@@ -1,18 +1,29 @@
 # AWS Instance Creation
 
 provider "aws" {
-  region = lookup(var.aws, "region")
+  region = lookup(var.aws_instance, "region")
+}
+
+resource "aws_security_group" "allow_ssh" {
+  name        = "allow_ssh"
+  description = "Allow ssh inbound traffic"
+  vpc_id = lookup(var.aws_security_group, "vpc_id")
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = lookup(var.aws_security_group, "cidr_blocks")
+  }
 }
 
 resource "aws_instance" "server" {
-  ami           = lookup(var.aws, "ami")
-  instance_type = lookup(var.aws, "instance_type")
-  vpc_security_group_ids = lookup(var.aws, "vpc_security_group_ids")
-  #security_groups = lookup(var.aws, "security_groups")
-  #count = lookup(var.aws, "count")
+  ami           = lookup(var.aws_instance, "ami")
+  instance_type = lookup(var.aws_instance, "instance_type")
+  #count = lookup(var.aws_instance, "count")
 
   tags = {
-    Name = lookup(var.aws, "instance_name")
+    Name = lookup(var.aws_instance, "instance_name")
   }
   lifecycle {
     ignore_changes = [ami]
