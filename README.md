@@ -24,12 +24,12 @@ It is recommended to maintain your configuration files within a GitHub repo. You
 ### Follow these steps to deploy using 
 
 - Clone the github repo locally
-    - git clone <repo Git URL>
+    - git clone "repo Git URL"
 - Once repo is cloned, make any changes needed before deploying.
 - Once configuration is setup including changes to variables, run terraform initialization
-    - 'terraform init'
+    - "terraform init"
 - Once initialized, run the following:
-    - 'terraform apply'
+    - "terraform apply"
 - When it is complete it should show successful. You can verify this by checking your AWS ec2 instances.
 
 ### Terminating an ec2 instance
