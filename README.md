@@ -6,18 +6,16 @@ The goal of this exercise is to create an ec2 instance in AWS using Terraform.
 
 ### Terraform
 
-Terraform will need to be installed locally on your device to perform this task.
+#### Terraform will need to be installed locally on your device to perform this task.
 
-This can be accomplished here: [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+Install using this link: [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
 
 ### AWS Account and Access
 
-An AWS account is needed to perform this task. You can sign up for a free account here: [AWS Account](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
+#### An AWS account is needed to perform this task. 
 
-### Github repo
-
-It is recommended to maintain your configuration files within a GitHub repo. You can sign up for Github here: [Github](https://github.com/)
+You can sign up for a free account here: [AWS Account](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
 
 ## Using Terraform to Deploy the Code
 
@@ -25,12 +23,11 @@ It is recommended to maintain your configuration files within a GitHub repo. You
 
 - Clone the github repo locally
     - git clone ```Github repo URL```
-- Once repo is cloned, make any changes needed before deploying.
-- Once configuration is setup including changes to variables, run terraform initialization
+- Once repo is cloned, initialize terraform with this command:
     - ```terraform init```
-- Once initialized, run the following:
+- Once configuration is setup including changes to variables, apply the changes and create the instance:
     - ```terraform apply```
-- When it is complete it should show successful. You can verify this by checking your AWS ec2 instances.
+- When it is complete it should show successful. You can verify this by checking your AWS ec2 instances, locating the instance, and verify it is running with all configurations applied.
 
 ### Terminating an ec2 instance
 - Once the instance is no longer needed, it can be deleted.
