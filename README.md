@@ -11,11 +11,26 @@ The goal of this exercise is to create an ec2 instance in AWS using Terraform.
 Install using this link: [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
 
-### AWS Account and Access
+### AWS Account
 
 #### An AWS account is needed to perform this task. 
 
 You can sign up for a free account here: [AWS Account](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
+
+### Access keys are needed for authentication to connect to AWS
+
+#### Follow these steps to create an access key in AWS
+
+- When on AWS landing page, click on username at the top right
+- Select ```security credentials```
+- Click on the tab ```Access keys (access key ID and secret access key)```
+- Create new access key
+- This should give an ID and secret key. These will need to be saved somewhere secure.
+
+#### The keys can either be exported, or put into a file locally to be called upon on Mac or Linux.
+
+- export AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY_ID>"
+- export AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"
 
 ## Using Terraform to Deploy the Code
 
