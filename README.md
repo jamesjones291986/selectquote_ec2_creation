@@ -24,7 +24,7 @@ It is recommended to maintain your configuration files within a GitHub repo. You
 ### Follow these steps to deploy using 
 
 - Clone the github repo locally
-    - git clone ```repo Git URL```
+    - git clone ```Github repo URL```
 - Once repo is cloned, make any changes needed before deploying.
 - Once configuration is setup including changes to variables, run terraform initialization
     - ```terraform init```
