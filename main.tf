@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "sq-vpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = "172.31.0.0/16"
   tags = {
     name = "sq-vpc"
   }
@@ -40,7 +40,7 @@ resource "aws_security_group" "allow_ssh" {
 
 resource "aws_subnet" "subnet" {
   vpc_id     = aws_vpc.sq-vpc.id
-  cidr_block = "10.1.0.0/24"
+  cidr_block = "172.31.0.0/24"
 
   tags = {
     Name = "sq-subnet"
