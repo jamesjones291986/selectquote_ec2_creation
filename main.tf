@@ -9,6 +9,7 @@ provider "aws" {
 resource "aws_instance" "server" {
   ami           = lookup(var.aws_instance, "ami")
   instance_type = lookup(var.aws_instance, "instance_type")
+  security_groups = aws_security_group.allow_ssh.name
   #count = lookup(var.aws_instance, "count")
 
   tags = {
