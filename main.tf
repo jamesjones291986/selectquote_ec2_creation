@@ -6,23 +6,27 @@ provider "aws" {
   #secret_key = ""
 }
 
-resource "aws_instance" "server" {
-  ami           = lookup(var.aws_instance, "ami")
-  instance_type = lookup(var.aws_instance, "instance_type")
-  #count = lookup(var.aws_instance, "count")
-
+resource "aws_vpc" "sq-vpc" {
+  cidr_block = "10.0.0.0/16"
   tags = {
-    Name = lookup(var.aws_instance, "instance_name")
-  }
-  lifecycle {
-    ignore_changes = [ami]
+    name = "sq-vpc"
   }
 }
 
-resource "aws_vpc" "sq-vpc" {
-  cidr_block = ["0.0.0.0/0"]
+resource "aws_internet_gateway" "gateway" {
+  vpc_id = aws_vpc.sq-vpc.id
+
   tags = {
-    name = "sq-vpc"
+    Name = "gateway"
+  }
+}
+
+resource "aws_subnet" "sq-subnet" {
+  vpc_id     = aws_vpc.sq-vpc.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "sq-subnet"
   }
 }
 
@@ -50,6 +54,32 @@ resource "aws_security_group" "allow_ssh" {
     Name = "allow_ssh"
   }
 }
+
+resource "aws_network_interface" "test" {
+  subnet_id       = aws_subnet.sq-subnet.id
+  private_ips     = ["10.0.0.37"]
+  security_groups = [aws_security_group.allow_ssh.id]
+
+  attachment {
+    instance     = aws_instance.server.id
+    device_index = 1
+  }
+}
+
+resource "aws_instance" "server" {
+  ami           = lookup(var.aws_instance, "ami")
+  instance_type = lookup(var.aws_instance, "instance_type")
+  #count = lookup(var.aws_instance, "count")
+
+  tags = {
+    Name = lookup(var.aws_instance, "instance_name")
+  }
+  lifecycle {
+    ignore_changes = [ami]
+  }
+}
+
+
 
 
 
