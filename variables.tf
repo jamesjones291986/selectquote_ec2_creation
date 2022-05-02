@@ -10,7 +10,7 @@ variable "aws_instance" {
   }
 }
 
-variable "aws_security_group" {
+variable "aws_vpc" {
   default = {
     vpc_id = "vpc-0fd8a920d78744614"
     cidr_blocks = "[172.31.0.0/20]"
