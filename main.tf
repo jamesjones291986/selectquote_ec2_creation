@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "sq-vpc" {
-  cidr_block = "172.31.0.0/20"
+  cidr_block = ["172.31.0.0/20"]
   tags = {
     name = "sq-vpc"
   }
