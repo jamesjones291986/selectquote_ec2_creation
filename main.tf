@@ -43,7 +43,7 @@ resource "aws_instance" "server" {
   instance_type = lookup(var.aws_instance, "instance_type")
   #count = lookup(var.aws_instance, "count")
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-  subnet_id = aws_vpc.sq-vpc.cidr_block
+  subnet_id = "subnet-0bf7cc195da13209d"
 
   tags = {
     Name = lookup(var.aws_instance, "instance_name")
