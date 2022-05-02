@@ -52,7 +52,7 @@ resource "aws_instance" "server" {
   instance_type = lookup(var.aws_instance, "instance_type")
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
   subnet_id = aws_subnet.subnet.id
-  availability_zone = lookup(var.aws_instance, "availability zone")
+  availability_zone = "us-west-2a"
 
   #count = lookup(var.aws_instance, "count")
 
