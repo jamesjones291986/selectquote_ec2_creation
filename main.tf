@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "sq-vpc" {
-  cidr_block = ["172.31.0.0/20"]
+  cidr_block = "172.31.0.0/20"
   tags = {
     name = "sq-vpc"
   }
@@ -22,7 +22,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = aws_vpc.sq-vpc.cidr_block
+    cidr_blocks = [aws_vpc.sq-vpc.cidr_block]
   }
 
   egress {
