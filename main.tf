@@ -1,7 +1,7 @@
 # AWS Instance Creation
 
 provider "aws" {
-  region = lookup(var.aws_instance, "region")
+  region = lookup(var.aws, "region")
   #access_key = ""
   #secret_key = ""
 }
