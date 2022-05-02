@@ -12,7 +12,7 @@ variable "aws_instance" {
 
 variable "aws_vpc" {
   default = {
-    cidr_blocks = "10.0.0.0/16"
+    cidr_blocks = [10.0.0.0/16]
   }
 }
 
