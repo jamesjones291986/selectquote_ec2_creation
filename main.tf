@@ -22,7 +22,7 @@ resource "aws_instance" "server" {
 resource "aws_vpc" "sq-vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    name = "SQ-vpc"
+    name = "sq-vpc"
   }
 }
 
@@ -44,6 +44,10 @@ resource "aws_security_group" "allow_ssh" {
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "allow_ssh"
   }
 }
 
