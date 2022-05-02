@@ -20,7 +20,7 @@ resource "aws_instance" "server" {
 }
 
 resource "aws_vpc" "sq-vpc" {
-  cidr_block = lookup(var.aws_vpc, "cidr_blocks")
+  cidr_block = "10.0.0.0/16"
   tags = {
     name = "SQ-vpc"
   }
