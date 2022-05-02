@@ -9,7 +9,6 @@ provider "aws" {
 resource "aws_instance" "server" {
   ami           = lookup(var.aws_instance, "ami")
   instance_type = lookup(var.aws_instance, "instance_type")
-  security_groups = aws_security_group.allow_ssh.name
   #count = lookup(var.aws_instance, "count")
 
   tags = {
@@ -36,7 +35,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [aws_vpc.sq-vpc.cidr_block]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
