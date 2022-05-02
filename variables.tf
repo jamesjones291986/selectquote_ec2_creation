@@ -7,6 +7,7 @@ variable "aws_instance" {
     instance_type = "t2.micro"
     instance_name = "SQ-instance"
     count = "1"
+    availability_zone = "us-west-2a"
   }
 }
 
