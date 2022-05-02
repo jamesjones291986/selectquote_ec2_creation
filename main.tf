@@ -40,7 +40,7 @@ resource "aws_security_group" "allow_ssh" {
 
 resource "aws_subnet" "subnet" {
   vpc_id     = aws_vpc.sq-vpc.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = "10.1.0.0/24"
 
   tags = {
     Name = "sq-subnet"
@@ -52,7 +52,6 @@ resource "aws_instance" "server" {
   instance_type = lookup(var.aws_instance, "instance_type")
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
   subnet_id = aws_subnet.subnet.id
-  availability_zone = "us-west-2a"
 
   #count = lookup(var.aws_instance, "count")
 
