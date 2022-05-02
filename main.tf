@@ -20,7 +20,7 @@ resource "aws_instance" "server" {
 }
 
 resource "aws_vpc" "sq-vpc" {
-  cidr_block = "0.0.0.0/0"
+  cidr_block = ["0.0.0.0/0"]
   tags = {
     name = "sq-vpc"
   }
